@@ -76,4 +76,14 @@ public class Restaurant {
     return name;
   }
 
+  public Double getPriceOfMenuItem(String menuItemName) throws itemNotFoundException {
+    Item menuItem = findItemByName(menuItemName);
+
+    if (null == menuItem) {
+      throw new itemNotFoundException(menuItemName);
+    }
+
+    return menuItem.getPrice();
+  }
+
 }

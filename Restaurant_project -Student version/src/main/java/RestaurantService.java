@@ -35,4 +35,24 @@ public class RestaurantService {
   public List<Restaurant> getRestaurants() {
     return restaurants;
   }
+
+
+  public Double calculateTotalPriceForSelectedMenuItems(String aRestaurantName,
+      ArrayList<String> selectedMenuItems)
+      throws restaurantNotFoundException, itemNotFoundException {
+
+    if (selectedMenuItems.size() <= 0) {
+      return 0.0;
+    }
+
+    Restaurant aRestaurant = this.findRestaurantByName(aRestaurantName);
+    Double totalPrice = 0.0;
+
+    for (String menuItemName : selectedMenuItems) {
+      Double menuItemPrice = aRestaurant.getPriceOfMenuItem(menuItemName);
+      totalPrice += menuItemPrice;
+    }
+
+    return totalPrice;
+  }
 }

@@ -89,5 +89,16 @@ class RestaurantTest {
   public void removing_item_that_does_not_exist_should_throw_exception() {
     assertThrows(itemNotFoundException.class, () -> restaurant.removeFromMenu("French fries"));
   }
+
+  @Test
+  public void get_price_of_menu_item_shall_return_price_based_on_menu_item_name()
+      throws itemNotFoundException {
+    assertEquals(119, restaurant.getPriceOfMenuItem("Sweet corn soup"));
+  }
+
+  @Test
+  public void get_price_of_menu_item_shall_throw_exception_if_menu_item_not_available() {
+    assertThrows(itemNotFoundException.class, () -> restaurant.getPriceOfMenuItem("French fries"));
+  }
   // <<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

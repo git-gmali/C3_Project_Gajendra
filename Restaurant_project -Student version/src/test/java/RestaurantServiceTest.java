@@ -78,7 +78,8 @@ class RestaurantServiceTest {
   // order and return the double value.
 
   @Test
-  public void calculate_price_shoulld_be_388_for_selected_menu_items_as_sweet_corn_soup_and_vegetable_lasagne_from_amelies_cafe_restaurant() {
+  public void calculate_price_shoulld_be_388_for_selected_menu_items_as_sweet_corn_soup_and_vegetable_lasagne_from_amelies_cafe_restaurant()
+      throws restaurantNotFoundException, itemNotFoundException {
     String aRestaurantName = "Amelie's cafe";
     ArrayList<String> selectedMenuItems = new ArrayList<String>();
     selectedMenuItems.add("Sweet corn soup");
@@ -90,13 +91,36 @@ class RestaurantServiceTest {
   }
 
   @Test
-  public void calculate_price_shoulld_be_0_if_selected_menu_items_are_0() {
+  public void calculate_price_shoulld_be_0_if_selected_menu_items_are_0()
+      throws restaurantNotFoundException, itemNotFoundException {
     String aRestaurantName = "Amelie's cafe";
     ArrayList<String> selectedMenuItems = new ArrayList<String>();
 
     Double totalPrice =
         service.calculateTotalPriceForSelectedMenuItems(aRestaurantName, selectedMenuItems);
     assertEquals(0, totalPrice);
+  }
+
+  // Adding this test case to cover the race around condition where the deletion of the menu item
+  // will happen immediately when the calculate price is invoked.
+  @Test
+  public void calculate_price_should_throw_exception_if_selected_menu_item_is_not_present() {
+    String aRestaurantName = "Amelie's cafe";
+    ArrayList<String> selectedMenuItems = new ArrayList<String>();
+    selectedMenuItems.add("Frech fries");
+    assertThrows(itemNotFoundException.class,
+        () -> service.calculateTotalPriceForSelectedMenuItems(aRestaurantName, selectedMenuItems));
+  }
+
+  // Adding this test case to cover the race around condition where the deletion of the restaurant
+  // will happen immediately when the calculate price is invoked.
+  @Test
+  public void calculate_price_should_throw_exception_if_restaurant_is_not_present() {
+    String aRestaurantName = "My cafe";
+    ArrayList<String> selectedMenuItems = new ArrayList<String>();
+    selectedMenuItems.add("Frech fries");
+    assertThrows(restaurantNotFoundException.class,
+        () -> service.calculateTotalPriceForSelectedMenuItems(aRestaurantName, selectedMenuItems));
   }
 
 }
