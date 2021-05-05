@@ -101,4 +101,11 @@ class RestaurantTest {
     assertThrows(itemNotFoundException.class, () -> restaurant.getPriceOfMenuItem("French fries"));
   }
   // <<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  // <<<<<<<<<<<<<<<<<<<<<<<MRedstaurant Details>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  // @Test
+  // public void display_restaurant_details() {
+  // restaurant.displayDetails();
+  // }
+  // <<<<<<<<<<<<<<<<<<<<<<<MRedstaurant Details>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

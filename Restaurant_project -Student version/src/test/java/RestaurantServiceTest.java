@@ -1,3 +1,4 @@
+// import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -62,9 +63,11 @@ class RestaurantServiceTest {
   @Test
   public void add_restaurant_should_increase_list_of_restaurants_size_by_1() {
     int initialNumberOfRestaurants = service.getRestaurants().size();
-    service.addRestaurant("Pumpkin Tales", "Chennai", LocalTime.parse("12:00:00"),
-        LocalTime.parse("23:00:00"));
+    Restaurant aRestaurant = service.addRestaurant("Pumpkin Tales", "Chennai",
+        LocalTime.parse("12:00:00"), LocalTime.parse("23:00:00"));
     assertEquals(initialNumberOfRestaurants + 1, service.getRestaurants().size());
+
+    assertEquals("Pumpkin Tales", aRestaurant.getName());
   }
   // <<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
 
