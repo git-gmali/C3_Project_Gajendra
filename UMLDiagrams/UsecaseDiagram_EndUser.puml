@@ -1,0 +1,25 @@
+@startuml
+title End user or Customer Use case Diagram
+
+skinparam actorStyle awesome
+left to right direction
+actor "End User" as eu
+
+rectangle RestaurentFinder {
+        rectangle Restaurent{
+       usecase "Search restaurent" as srchRest
+    usecase "View restaurent details" as vwRest
+    usecase "View menu" as vwMenu       
+    usecase "Select item" as slctItm
+    usecase "View price" as vwPrice      
+    }
+
+}
+
+eu -- srchRest
+eu -- vwRest
+eu -- vwMenu
+eu --- slctItm
+eu --- vwPrice
+(vwPrice) .> (slctItm) : <<include>>
+@enduml

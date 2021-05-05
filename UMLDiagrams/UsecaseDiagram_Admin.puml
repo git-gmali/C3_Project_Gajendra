@@ -1,0 +1,42 @@
+@startuml
+title Restaurent Finder Use case Diagram
+
+skinparam actorStyle awesome
+left to right direction
+actor "Admin"  as au
+
+rectangle RestaurentFinder {
+
+      rectangle RestaurentOnboard{
+    usecase "Authorize restaurent" as authRest
+    usecase "Remove restaurent" as rmvRest
+    }
+    
+    rectangle Analytics{
+    usecase "View analytics" as vwAnalytics
+    usecase "Generate analytics reports" as analyticReport
+    usecase "Generate report in pdf" as reportPdf
+    usecase "Generate report in excel" as reportExcel
+    usecase "Generate fixed periodic reports" as reportPeriod
+    usecase "Generate reports on demand" as reportOndemand
+    }
+}
+
+
+reportPdf -down-|> analyticReport
+reportExcel -down-|> analyticReport
+reportPeriod -down-|> analyticReport
+reportOndemand -down-|> analyticReport
+
+au -- authRest
+au -- rmvRest
+
+au -- vwAnalytics
+au ---- analyticReport
+(analyticReport) ..> (vwAnalytics) : <<extend>>
+(reportPdf) ..> (analyticReport) : <<extend>>
+(reportExcel) ..> (analyticReport) : <<extend>>
+(reportPeriod) ..> (analyticReport) : <<extend>>
+(reportOndemand) ..> (analyticReport) : <<extend>>
+
+@enduml

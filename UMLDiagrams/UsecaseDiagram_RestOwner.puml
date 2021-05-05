@@ -1,0 +1,43 @@
+@startuml
+title Restaurent Owner Use case Diagram
+
+skinparam actorStyle awesome
+left to right direction
+actor "Restaurent owner" as ru
+
+rectangle RestaurentFinder {
+
+      rectangle ManageRestaurent{
+    usecase "Register restaurent" as regRest
+    usecase "Upload restaurent document" as upldRest
+    usecase "Upload restaurent Menu" as upldMenu
+    usecase "Update restaurent time" as updtTime
+    usecase "update restaurent location" as updtLoc
+    usecase "View restaurent details" as vwRestDet
+    usecase "Update menu" as updtMenu
+    usecase "Update prices" as updtPrice
+    usecase "View menu with price" as vwMenuP
+    usecase "Request restaurent removal" as reqRmvRest
+    usecase "Delete menu item" as delMItm
+    }
+    
+}
+
+
+ru -- reqRmvRest
+ru -- regRest
+ru -- upldRest
+ru -- upldMenu
+ru -- vwMenuP
+ru -- updtMenu
+ru -- updtPrice
+ru -- delMItm
+(updtMenu) .> (vwMenuP) : <<include>>
+(updtPrice) .> (vwMenuP) : <<include>>
+(delMItm) .> (vwMenuP) : <<include>>
+ru --- vwRestDet
+ru --- updtTime
+ru --- updtLoc
+(updtTime) .> (vwRestDet) : <<include>>
+(updtLoc) .> (vwRestDet) : <<include>>
+@enduml

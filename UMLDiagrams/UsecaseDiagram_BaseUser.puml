@@ -1,0 +1,31 @@
+@startuml
+title Restaurent Finder Use case Diagram
+
+skinparam actorStyle awesome
+left to right direction
+actor "User" as u
+actor "Admin"  as au
+actor "Restaurent owner" as ru
+
+rectangle RestaurentFinder {
+
+     rectangle UserProfile{
+  usecase "Sign up/Register" as signUp
+  usecase "Log in/Sign in" as logIn
+  usecase "View profile" as vwProf
+  usecase "Edit profile" as edtProf
+  usecase "Log out" as logOut
+  }
+}
+
+u -- signUp
+u -- logIn
+u -- logOut
+u -- edtProf
+u -- vwProf
+(edtProf) .> (vwProf) : <<include>>
+
+au -down-|> u
+ru -down-|> u
+
+@enduml
