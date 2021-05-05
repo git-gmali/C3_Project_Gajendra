@@ -1,4 +1,12 @@
 lib/
-target/
-classes/
-test-classes/
+Restaurant_project\ -Student\ version/.idea/misc.xml
+Restaurant_project\ -Student\ version/.idea/vcs.xml
+Restaurant_project\ -Student\ version/pom.xml
+Restaurant_project\ -Student\ version/target/classes/Item.class
+Restaurant_project\ -Student\ version/target/classes/Restaurant.class
+Restaurant_project\ -Student\ version/target/classes/RestaurantService.class
+Restaurant_project\ -Student\ version/target/classes/itemNotFoundException.class
+Restaurant_project\ -Student\ version/target/classes/main
+Restaurant_project\ -Student\ version/target/classes/restaurantNotFoundException.class
+Restaurant_project\ -Student\ version/target/test-classes/RestaurantServiceTest.class
+Restaurant_project\ -Student\ version/target/test-classes/RestaurantTest.class
