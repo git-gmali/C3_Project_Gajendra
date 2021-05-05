@@ -41,13 +41,16 @@ public class RestaurantService {
       ArrayList<String> selectedMenuItems)
       throws restaurantNotFoundException, itemNotFoundException {
 
+    // If the no menu item is not selected then return the price as 0
     if (selectedMenuItems.size() <= 0) {
       return 0.0;
     }
 
+    // Find the restaurant for which the price to be calculated.
     Restaurant aRestaurant = this.findRestaurantByName(aRestaurantName);
     Double totalPrice = 0.0;
 
+    // Iterate through the selected menu list to calculate the sum of price.
     for (String menuItemName : selectedMenuItems) {
       Double menuItemPrice = aRestaurant.getPriceOfMenuItem(menuItemName);
       totalPrice += menuItemPrice;

@@ -102,10 +102,14 @@ class RestaurantTest {
   }
   // <<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-  // <<<<<<<<<<<<<<<<<<<<<<<MRedstaurant Details>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  // @Test
-  // public void display_restaurant_details() {
-  // restaurant.displayDetails();
-  // }
-  // <<<<<<<<<<<<<<<<<<<<<<<MRedstaurant Details>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+  // <<<<<<<<<<<<<<<<<<<<<<<Restaurant details>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  // Checking on how to test the output details part
+  @Test
+  public void display_restaurant_details() {
+    restaurant.displayDetails();
+  }
+  // <<<<<<<<<<<<<<<<<<<<<<<Restaurant details>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

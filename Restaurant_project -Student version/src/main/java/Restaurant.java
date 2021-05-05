@@ -66,6 +66,7 @@ public class Restaurant {
     menu.remove(itemToBeRemoved);
   }
 
+  // TO-DO think about the approach to test this method.
   public void displayDetails() {
     System.out.println("Restaurant:" + name + "\n" + "Location:" + location + "\n" + "Opening time:"
         + openingTime + "\n" + "Closing time:" + closingTime + "\n" + "Menu:" + "\n" + getMenu());

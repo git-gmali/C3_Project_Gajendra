@@ -73,12 +73,14 @@ class RestaurantServiceTest {
 
 
   // TDD
-  // When user selects the menu items, calculate the price of the order and display it to user
-  // One of the inputs shall be the restaurant name to get the correct price related to selected
+  // When user selects the menu items, calculate the price of the order and display it to user -
+  // Done
+  // One of the inputs shall be the restaurant name to get the correct price related to selected -
+  // Done
   // items
-  // The other input shall be the selected menu items
+  // The other input shall be the selected menu items - done
   // Based on the restaurant availability and selected items price, calculate the total price of the
-  // order and return the double value.
+  // order and return the double value. - done
 
   @Test
   public void calculate_price_shoulld_be_388_for_selected_menu_items_as_sweet_corn_soup_and_vegetable_lasagne_from_amelies_cafe_restaurant()

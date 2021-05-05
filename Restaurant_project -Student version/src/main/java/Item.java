@@ -16,6 +16,7 @@ public class Item {
     return name + ":" + price + "\n";
   }
 
+  // Added the get price method with double return type as mostly the price is double type
   public Double getPrice() {
     return Double.valueOf(price);
   }
